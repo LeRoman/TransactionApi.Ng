@@ -1,36 +1,44 @@
-
 <mat-card>
-<mat-card-header>
-  <mat-card-title>File importing</mat-card-title>
-</mat-card-header>
+  <mat-card-header>
+    <mat-card-title>File importing</mat-card-title>
+  </mat-card-header>
 
-<input type="file" class="file-input" (change)="onChange($event)" #fileUpload />
+  <input
+    type="file"
+    class="file-input"
+    (change)="onChange($event)"
+    #fileUpload
+  />
 
-<mat-card-content>
-  <button mat-raised-button class="import-button"  (click)="fileUpload.click()">
-    Attach file
-  </button> 
-</mat-card-content>
+  <mat-card-content>
+    <button
+      mat-raised-button
+      class="import-button"
+      (click)="fileUpload.click()"
+    >
+      Attach file
+    </button>
+  </mat-card-content>
 
+  <mat-card-content *ngIf="file">
+    <section class="file-info" class="section">
+      File details:
+      <ul>
+        <li>Name: {{ file.name }}</li>
+        <li>Type: {{ file.type }}</li>
+        <li>Size: {{ file.size }} bytes</li>
+      </ul>
+    </section>
 
-<mat-card-content *ngIf="file" >
-  <section class="file-info" class="section">
-    File details:
-    <ul>
-      <li>Name: {{file.name}}</li>
-      <li>Type: {{file.type}}</li>
-      <li>Size: {{file.size}} bytes</li>
-    </ul>
-  </section>
+    <button mat-raised-button class="import-button" (click)="onUpload()">
+      Upload the file
+    </button>
 
-  <button mat-raised-button class="import-button"  (click)="onUpload()">Upload the file</button>
-
-  <section [ngSwitch]="status" class="section">
-    <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
-    <p *ngSwitchCase="'success'">✅ Done!</p>
-    <p *ngSwitchCase="'fail'">❌ Error!</p>
-    <p *ngSwitchDefault>😶 Waiting to upload...</p>
-  </section>
-</mat-card-content>
-
+    <section [ngSwitch]="status" class="section">
+      <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
+      <p *ngSwitchCase="'success'">✅ Done!</p>
+      <p *ngSwitchCase="'fail'">❌ Error!</p>
+      <p *ngSwitchDefault>😶 Waiting to upload...</p>
+    </section>
+  </mat-card-content>
 </mat-card>

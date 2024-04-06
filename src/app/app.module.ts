@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MatButtonModule } from "@angular/material/button";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatCardModule } from "@angular/material/card";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MenuToolbarComponent } from './menu-toolbar/menu-toolbar.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -22,13 +22,15 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { ExportComponent } from './export/export.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuToolbarComponent,
     TransactionsComponent,
-    ImportComponent
+    ImportComponent,
+    ExportComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,10 +48,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    MatIconModule
-
+    MatIconModule,
   ],
   providers: [TransactionsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

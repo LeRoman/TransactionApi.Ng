@@ -4,23 +4,21 @@ import { throwError } from 'rxjs';
 @Component({
   selector: 'app-import',
   templateUrl: './import.component.html',
-  styleUrls: ['./import.component.css']
+  styleUrls: ['./import.component.css'],
 })
 export class ImportComponent {
-
-  status: "initial" | "uploading" | "success" | "fail" = "initial";
+  status: 'initial' | 'uploading' | 'success' | 'fail' = 'initial';
   file: File | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {}
 
   onChange(event: any) {
     const file: File = event.target.files[0];
 
     if (file) {
-      this.status = "initial";
+      this.status = 'initial';
       this.file = file;
     }
   }
@@ -31,7 +29,10 @@ export class ImportComponent {
 
       formData.append('file', this.file, this.file.name);
 
-      const upload$ = this.http.post("api/transactions/import-csv-file", formData);
+      const upload$ = this.http.post(
+        'api/transactions/import-csv-file',
+        formData
+      );
 
       this.status = 'uploading';
 
