@@ -15,13 +15,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ImportComponent } from './import/import.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpInternalService } from './services/http-internal.service';
 import { TransactionsService } from './services/transactions.service';
 import { FormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,10 +45,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDividerModule,
     MatTableModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
 
   ],
-  providers: [HttpInternalService, TransactionsService],
+  providers: [TransactionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
